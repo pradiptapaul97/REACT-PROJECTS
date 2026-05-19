@@ -36,17 +36,22 @@ function App() {
     window.navigator.clipboard.writeText(password)
   }, [password]) //[password] => why
 
+  // const copyPassword = (password) => {
+  //   passwordRef.current?.select()
+  //   window.navigator.clipboard.writeText(password)
+  // } //[password] => why
+
   useEffect(() => {
     passwordGenerator()
   }, [passwordGenerator])
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-slate-800 to-black flex items-center justify-center p-4">
+    <div className="min-h-screen bg-linear-to-br from-gray-900 via-slate-800 to-black flex items-center justify-center p-4">
       <div className="w-full max-w-md bg-white/5 backdrop-blur-xl rounded-3xl shadow-[0_0_40px_rgba(0,0,0,0.5)] border border-white/10 p-8 transform transition-all hover:scale-[1.01]">
 
         {/* Header */}
         <div className="text-center mb-10">
-          <h1 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-emerald-400 drop-shadow-sm">
+          <h1 className="text-4xl font-extrabold text-transparent bg-clip-text bg-linear-to-r from-teal-400 to-emerald-400 drop-shadow-sm">
             Password Generator
           </h1>
           <p className="text-gray-400 mt-3 font-medium tracking-wide">
@@ -56,7 +61,7 @@ function App() {
 
         {/* Password Display Box */}
         <div className="relative group mb-8">
-          <div className="absolute -inset-0.5 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-500"></div>
+          <div className="absolute -inset-0.5 bg-linear-to-r from-teal-500 to-emerald-500 rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-500"></div>
           <div className="relative flex items-center bg-gray-900 rounded-2xl p-2">
             <input
               type="text"
@@ -66,7 +71,7 @@ function App() {
               ref={passwordRef}
               readOnly
             />
-            <button onClick={copyPassword} className="ml-2 flex-shrink-0 bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-teal-400 hover:to-emerald-400 text-white font-bold rounded-xl px-6 py-3 transition-all active:scale-95 shadow-lg shadow-teal-500/30 flex items-center gap-2">
+            <button onClick={() => copyPassword(password)} className="ml-2 shrink-0 bg-linear-to-r from-teal-500 to-emerald-500 hover:from-teal-400 hover:to-emerald-400 text-white font-bold rounded-xl px-6 py-3 transition-all active:scale-95 shadow-lg shadow-teal-500/30 flex items-center gap-2">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                 <path d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z" />
                 <path d="M6 3a2 2 0 00-2 2v11a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2 3 3 0 01-3 3H9a3 3 0 01-3-3z" />
@@ -96,7 +101,7 @@ function App() {
               />
             </div>
 
-            <div className="h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent"></div>
+            <div className="h-px bg-linear-to-r from-transparent via-gray-700 to-transparent"></div>
 
             {/* Checkboxes */}
             <div className="flex justify-between items-center gap-4">
